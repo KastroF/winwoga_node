@@ -4,7 +4,10 @@
     "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
     "main": "server.js",
     "scripts": {
-      "start": "node server.js"
+      "start": "node server.js", 
+      "prebuild": "npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
+      "build": "cd android && ./gradlew assembleDebug && cd../"
+  
     },
     "dependencies": {
       "fastify": "^4.21.0",

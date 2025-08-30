@@ -334,8 +334,19 @@ exports.addAgentOrder = async (req, res) => {
 
 exports.addOrder = async (req, res) => {
   
+
+
     
     const user = await User.findOne({_id: req.body._id})
+
+    if((req.auth.userId === user.agg_id) && !itsme) {
+
+      return res.status(200).json({
+        status: 1,
+        message: `Vous n'êtes pas autorisé à utilisé cette application`
+      });
+      
+    }
   
     const order = new Order({
       
@@ -511,6 +522,8 @@ exports.launchOrder = async (req, res) => {
         message: `Vous avez dépassé votre quota en commande, vous ne pouvez commander que ${parseInt(user.amount) - parseInt(totalInProgress)}`
       });
     }
+
+
 
     const serviceMap = {
       "Flash Airtel": { phone: user.flashPhone, type: "flash" },
