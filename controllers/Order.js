@@ -337,7 +337,7 @@ exports.addOrder = async (req, res) => {
 
   console.log("le code ", req.body);
     
-    const user = await User.findOne({_id: req.body._id})
+   /* const user = await User.findOne({_id: req.body._id})
 
     if((req.auth.userId === user.agg_id) && !itsme) {
 
@@ -347,7 +347,7 @@ exports.addOrder = async (req, res) => {
       });
       
     }
-  
+  */
     const order = new Order({
       
       amount: parseInt(req.body.amount),
