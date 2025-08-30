@@ -335,7 +335,7 @@ exports.addAgentOrder = async (req, res) => {
 exports.addOrder = async (req, res) => {
   
 
-  console.log(req.body);
+  console.log("le code ", req.body);
     
     const user = await User.findOne({_id: req.body._id})
 
