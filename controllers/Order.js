@@ -475,10 +475,14 @@ exports.launchOrder = async (req, res) => {
 
     if(parseInt(amount) < 50000){
 
+      console.log("TU ne peux pas prendre moins de 50");
+
       return res.status(200).json({
         status: 1,
         message: "Vous ne pouvez pas commander moins de 50000 FCFA"
       });
+
+
     }
 
     const serviceBalances = {
