@@ -473,6 +473,14 @@ exports.launchOrder = async (req, res) => {
       });
     }
 
+    if(parseInt(amount) < 50000){
+
+      return res.status(200).json({
+        status: 1,
+        message: "Vous ne pouvez pas commander moins de 50000 FCFA"
+      });
+    }
+
     const serviceBalances = {
       "Airtel Money": agg.amBalance,
       "Moov Money": agg.mmBalance,
