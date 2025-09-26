@@ -473,7 +473,7 @@ exports.launchOrder = async (req, res) => {
       });
     }
 
-    if(parseInt(amount) < 50000){
+    if((currentServicee && (currentServicee === "Airtel Money" || currentServicee === "Moov Money")) && parseInt(amount) < 50000){
 
       console.log("TU ne peux pas prendre moins de 50");
 
